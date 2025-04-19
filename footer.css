@@ -1,0 +1,42 @@
+footer {
+    background-color: #DB4444;
+    color: white;
+    display: flex !important;
+    justify-content: space-around;
+    padding: 30px;
+}
+
+footer input {
+    background-color: #ffffff00;
+    border: #fff 1px solid;
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 15px;
+}
+
+footer svg {
+    margin-left: -40px;
+}
+
+.imageDiv {
+    display: flex;
+    align-items: center;
+}
+
+footer div .img1 {
+    width: 75px;
+    height: 75px;
+    margin-right: 5px;
+}
+
+footer .imageDiv2 img {
+    width: 100px;
+    margin-bottom: 3px;
+}
+
+footer .iconDiv {
+    width: 180px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
