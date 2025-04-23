@@ -12,10 +12,6 @@
     margin-right: auto;
 }
 
-.shopCollection-section {
-    margin: 60px;
-}
-
 .headerDiv div {
     display: flex;
     align-items: center;
@@ -163,7 +159,8 @@
     display: flex;
     margin: 100px -100px;
 }
-.imgDiv img{
+
+.imgDiv img {
     width: 100vw;
     height: 700px;
     text-align: center;

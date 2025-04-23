@@ -1,0 +1,32 @@
+main {
+    display: flex !important;
+    justify-content: center;
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+    margin: 150px 0px;
+    width: 450px;
+    height: 596px;
+}
+
+main h1 {
+    text-align: center;
+}
+
+form input {
+    padding: 4px;
+    border: #e6e6e6 1px solid;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+form button {
+    margin: 15px 0px;
+    border: none;
+    background-color: #DB4444;
+    color: #fff;
+    padding: 13px 37px;
+    border-radius: 5px;
+}
