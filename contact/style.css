@@ -1,0 +1,21 @@
+.sec1 {
+    margin-top: 70px;
+    margin-left: 150px;
+}
+
+.sec2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+ul li a {
+    color: black;
+}
+
+ul li:hover a {
+    color: white;
+}
+
+ul li a:hover {
+    text-decoration: none;
+}

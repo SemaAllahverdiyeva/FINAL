@@ -1,0 +1,51 @@
+
+main {
+    display: flex !important;
+    justify-content: center;
+}
+
+.secDiv {
+    width: 90vw;
+    border: 1px black solid;
+    margin-top: 50px;
+    margin-bottom: 200px;
+    padding: 10px 30px;
+}
+
+.secDiv input {
+    border: 1px solid rgba(0, 0, 0, 0.158);
+    border-radius: 7px;
+    padding: 5px;
+}
+
+.catecoryDiv {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.158);
+    padding-top: 15px;
+}
+
+.rateDiv {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.158);
+    padding: 10px;
+    margin-bottom: 70px;
+}
+
+.catecoryDiv ul {
+    list-style-type: none;
+}
+
+ul li {
+    margin-left: 15px;
+    font-size: 22px;
+    font-weight: 700;
+}
+ul li a {
+    color: black;
+}
+
+ul li:hover a {
+    color: white;
+}
+
+ul li a:hover {
+    text-decoration: none;
+}

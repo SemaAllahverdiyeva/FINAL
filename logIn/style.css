@@ -7,10 +7,9 @@ main form {
     display: flex;
     flex-direction: column;
     margin: 150px 0px;
+    margin-bottom: 300px;
     width: 450px;
-    height: 596px;
 }
-
 main h1 {
     text-align: center;
 }
@@ -19,14 +18,26 @@ form input {
     padding: 4px;
     border: #e6e6e6 1px solid;
     border-radius: 3px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
+
 form button {
-    margin: 15px 0px;
+    margin: 30px 0px;
     border: none;
     background-color: #DB4444;
     color: #fff;
     padding: 13px 37px;
     border-radius: 5px;
+}
+ul li a {
+    color: black;
+}
+
+ul li:hover a {
+    color: white;
+}
+
+ul li a:hover {
+    text-decoration: none;
 }

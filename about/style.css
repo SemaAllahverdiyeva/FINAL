@@ -1,0 +1,39 @@
+.sec1 {
+    margin-top: 70px;
+    margin-left: 150px;
+}
+
+.sec2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.imgDiv {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 150px;
+    margin-bottom: 100px;
+}
+
+.imgDiv img {
+    width: 330px;
+    height: 400px;
+}
+
+.imgDiv h3 {
+    margin: 20px 0px;
+}
+
+ul li a {
+    color: black;
+}
+
+ul li:hover a {
+    color: white;
+}
+
+ul li a:hover {
+    text-decoration: none;
+}
