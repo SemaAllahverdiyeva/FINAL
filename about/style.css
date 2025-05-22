@@ -25,15 +25,3 @@
 .imgDiv h3 {
     margin: 20px 0px;
 }
-
-ul li a {
-    color: black;
-}
-
-ul li:hover a {
-    color: white;
-}
-
-ul li a:hover {
-    text-decoration: none;
-}

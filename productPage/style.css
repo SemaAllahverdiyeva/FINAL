@@ -1,0 +1,28 @@
+.sec1 {
+    margin-top: 70px;
+    margin-left: 150px;
+}
+
+.mainDiv {
+    display: flex;
+    align-items: center;
+}
+
+.mainDiv img {
+    margin-top: 50px;
+}
+
+.div1 {
+    margin-right: 50px;
+}
+
+.div2 img {
+    margin-top: -15px;
+    margin-right: 10px;
+}
+.div2 p{
+    margin-right: 10px;
+}
+.div2 {
+    align-items: center;
+}

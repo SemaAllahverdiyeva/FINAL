@@ -23,14 +23,3 @@ textarea {
     border: 1px solid black;
     border-radius: 5px;
 }
-ul li a {
-    color: black;
-}
-
-ul li:hover a {
-    color: white;
-}
-
-ul li a:hover {
-    text-decoration: none;
-}

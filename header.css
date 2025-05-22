@@ -68,3 +68,14 @@ nav button {
     background-color: #DD4444;
     border-radius: 5px;
 }
+ul li a {
+    color: black;
+}
+
+ul li:hover a {
+    color: white;
+}
+
+ul li a:hover {
+    text-decoration: none;
+}

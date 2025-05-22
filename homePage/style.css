@@ -161,19 +161,7 @@
 }
 
 .imgDiv img {
-    width: 100vw;
-    height: 700px;
+    width: 461px;
+    height: 640px;
     text-align: center;
-}
-
-ul li a {
-    color: black;
-}
-
-ul li:hover a {
-    color: white;
-}
-
-ul li a:hover {
-    text-decoration: none;
 }
