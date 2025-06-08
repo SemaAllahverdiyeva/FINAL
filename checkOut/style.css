@@ -1,0 +1,33 @@
+section {
+    padding: 40px 150px;
+    display: flex !important;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 450px;
+}
+
+form input,
+select {
+    padding: 4px;
+    border: #e6e6e6 1px solid;
+    border-radius: 3px;
+    margin-bottom: 15px;
+}
+
+option {
+    background-color: rgb(36, 85, 128);
+}
+
+table td {
+    border-bottom: 2px solid #e6e6e6;
+    padding-top: 22px;
+    font-size: 20px;
+}
+
+table .td {
+    padding-right: 322px;
+}

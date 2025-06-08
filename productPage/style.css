@@ -1,5 +1,5 @@
-.sec1 {
-    margin-top: 70px;
+.sec1,.sec2 {
+    margin: 70px 0px;
     margin-left: 150px;
 }
 
@@ -20,9 +20,11 @@
     margin-top: -15px;
     margin-right: 10px;
 }
-.div2 p{
+
+.div2 p {
     margin-right: 10px;
 }
+
 .div2 {
     align-items: center;
 }

@@ -76,6 +76,6 @@ ul li:hover a {
     color: white;
 }
 
-ul li a:hover {
+header a:hover {
     text-decoration: none;
 }

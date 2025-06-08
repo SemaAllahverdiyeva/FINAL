@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Chech Out</title>
     <link rel="stylesheet" href="../header.css">
     <link rel="stylesheet" href="../footer.css">
     <link rel="stylesheet" href="./style.css">
@@ -46,24 +46,78 @@
     </header>
     <main>
         <section>
-            <form action="">
-                <h1>Create an account</h1>
-                <label for="">Name</label>
-                <input type="text">
-                <label for="">Surname</label>
-                <input type="text">
-                <label for="">Email</label>
-                <input type="email">
-                <label for="">Username</label>
-                <input type="text">
-                <label for="">Name</label>
-                <input type="text">
-                <label for="">Password</label>
-                <input type="password">
-                <button>Create Account</button>
-                <h6 style="text-align: center; font-weight: 500;">Alderly have account? <span
-                        style="color: #DB4444;">Log in</span></h6>
-            </form>
+            <div style="margin-right: 300px;">
+                <form>
+                    <label for="">First name</label>
+                    <input type="text">
+                    <label for="">Last name</label>
+                    <input type="text">
+                    <label for="">State</label>
+                    <select name="" id="">
+                        <option value="">Choose...</option>
+                        <option value="">England</option>
+                        <option value="">Russia</option>
+                        <option value="">Germany</option>
+                        <option value="">Italy</option>
+                        <option value="">America</option>
+                        <option value="">France</option>
+                        <option value="">China</option>
+                        <option value="">Japan</option>
+                        <option value="">Turkey</option>
+                        <option value="">Azerbaijan</option>
+                    </select>
+                    <label for="">City</label>
+                    <input type="text">
+                    <label for="">Address</label>
+                    <input type="text">
+                    <label for="">Zip</label>
+                    <input type="text">
+                    <label for="">Tel</label>
+                    <input type="number">
+                    <label for="">Email</label>
+                    <input type="email">
+                    <div>
+                        <input type="checkbox">
+                        <label for="">Agree to terms and conditions</label>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <img src="../images/checkOut/Screenshot_4.png" alt="">
+                <form action="">
+                    <label for="">Card number</label>
+                    <input type="number" style=" width: 602px;">
+                    <div style="display: flex;">
+                        <div style=" margin-right: 25px;">
+                            <label for="">Expiration(MM)</label> <br>
+                            <input type="number" style="width: 184px;">
+                        </div>
+                        <div style=" margin-right: 25px;">
+                            <label for="">Expiration(YY)</label> <br>
+                            <input type="number" style="width: 184px;">
+                        </div>
+                        <div>
+                            <label for="">Card security code</label> <br>
+                            <input type="number" style="width: 184px;">
+                        </div>
+                    </div>
+                </form>
+                <table>
+                    <tr>
+                        <td class="td">Subtotal</td>
+                        <td>189.96999999999997$</td>
+                    </tr>
+                    <tr>
+                        <td class="td">Shipping</td>
+                        <td>FREE</td>
+                    </tr>
+                    <tr>
+                        <td class="td">Total</td>
+                        <td>189.96999999999997$</td>
+                    </tr>
+                </table>
+                <button style="border: none; border-radius: 3px; background-color: #DB4444; color: white; padding: 15px 25px; margin-top: 45px; margin-left: 471px;">Place order</button>
+            </div>
         </section>
     </main>
     <footer>

@@ -1,0 +1,23 @@
+section {
+    margin: 50px 120px;
+}
+
+table {
+    font-size: 18px;
+}
+
+table {
+    width: 100%;
+}
+
+.table2 tr {
+    border-bottom: 2px solid #e6e6e6;
+}
+
+.table2 tr td:first-child {
+    padding-right: 100px;
+}
+
+.table2 td {
+    padding-top: 10px;
+}

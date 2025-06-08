@@ -37,3 +37,27 @@ main ul li {
     font-size: 22px;
     font-weight: 700;
 }
+
+.cartDiv {
+    display: flex;
+    align-items: center;
+}
+.cart{
+    margin: 70px 50px;
+}
+.cart .p1 {
+    font-weight: 600;
+}
+
+.cart .p2 {
+    font-weight: 600;
+    color: #DD4444;
+}
+
+.cart button {
+    border: none;
+    color: white;
+    background-color: black;
+    border-radius: 5px;
+    padding: 5px 66px;
+}
