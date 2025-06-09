@@ -5,10 +5,10 @@ main {
 
 .secDiv {
     width: 90vw;
-    border: 1px black solid;
     margin-top: 50px;
     margin-bottom: 200px;
     padding: 10px 30px;
+    margin-left: 150px;
 }
 
 .secDiv input {
@@ -38,26 +38,50 @@ main ul li {
     font-weight: 700;
 }
 
-.cartDiv {
+#productList {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
-.cart{
-    margin: 70px 50px;
+
+.product-card {
+    width: 230px;
+    height: 300px;
+    margin-top: 20px;
+    margin-right: -50px;
+    padding: 10px 5px;
+    box-shadow: 1px 1px 10px rgb(230, 230, 230);
+    text-align: center;
 }
-.cart .p1 {
+
+.rating {
+    font-weight: 600;
+    color: #ffee00;
+}
+.price {
+    font-weight: 600;
+    color: #dd4444;
+}
+.product-title{
     font-weight: 600;
 }
 
-.cart .p2 {
-    font-weight: 600;
-    color: #DD4444;
+.rating span {
+    font-weight: 400;
+    color: #a1a1a1;
 }
 
-.cart button {
+.product-card img {
+    width: 100%;
+    max-height: 100px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.product-card button {
     border: none;
     color: white;
     background-color: black;
     border-radius: 5px;
-    padding: 5px 66px;
+    padding: 5px 69px;
 }

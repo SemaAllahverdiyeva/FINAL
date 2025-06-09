@@ -1,0 +1,90 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const productList = document.querySelector("#productList");
+    let activeUser = JSON.parse(localStorage.getItem("activeUser"));
+    let products = [];
+    let filteredProducts = [];
+
+    function fetchProducts() {
+        fetch("http://195.26.245.5:9505/api/products", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${activeUser?.token}`
+            }
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error("Failed to fetch products");
+                }
+                return response.json();
+            })
+            .then(data => {
+                products = data;
+                filteredProducts = [...products];
+                localStorage.setItem("products", JSON.stringify(products));
+                loadProducts();
+            })
+            .catch(error => {
+                console.error("Error fetching products:", error);
+                productList.innerHTML = `<p class="text-danger text-center"> Failed to load products </p>`;
+            });
+    }
+
+    function loadProducts() {
+        productList.innerHTML = "";
+
+        if (filteredProducts.length === 0) {
+            productList.innerHTML = `<p class="text-center">No products found.</p>`;
+            return;
+        }
+
+        filteredProducts.forEach(product => {
+            const productCard = document.createElement("div");
+            productCard.classList.add("col-md-3", "mb-4");
+            productCard.innerHTML = `
+                <div class="product-card">
+                    <img src="${product.imageUrl}" alt="${product.brand}" class="product-image" data-id="${product.id}">
+                    <h6 class="product-title" data-id="${product.id}">${product.brand} ${product.model}</h6>
+                    <p class="price">${product.price}$</p>
+                    <p class="rating">⭐ ${product.rating} <span>(${Math.floor(Math.random() * 100) + 1})</span></p>
+                    <button class="btn-add-to-cart" data-id="${product.id}">Add to cart</button>
+                </div>
+            `;
+
+            productList.appendChild(productCard);
+        });
+
+        document.querySelectorAll(".product-image, .product-title").forEach(item => {
+            item.addEventListener("click", function () {
+                const productId = this.getAttribute("data-id");
+                window.location.href = `../product/?id=${productId}`;
+            });
+        });
+
+        document.querySelectorAll(".btn-add-to-cart").forEach(button => {
+            button.addEventListener("click", function () {
+                const productId = this.getAttribute("data-id");
+                addToCart(productId);
+            });
+        });
+    }
+
+    function addToCart(productId) {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const existingProduct = cart.find(p => p.id === productId);
+
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+        } else {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                cart.push({ ...product, quantity: 1 });
+            }
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+        alert("Product added to cart!");
+    }
+
+    fetchProducts();
+});

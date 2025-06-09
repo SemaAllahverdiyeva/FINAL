@@ -2,24 +2,15 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
-    <link rel="stylesheet" href="../header.css">
-    <link rel="stylesheet" href="../footer.css">
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../header.css" />
+    <link rel="stylesheet" href="../footer.css" />
+    <link rel="stylesheet" href="./style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <script src="https://kit.fontawesome.com/e8c9158c97.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -37,48 +28,55 @@
                 <li><a href="../shop/">Shop</a></li>
             </ul>
             <div>
-                <input type="text" placeholder="What are you lookimg for?">
+                <input type="text" placeholder="What are you looking for?" />
                 <i class="fa-solid fa-magnifying-glass" style="margin: 5px;"></i>
-                <button><a href="../logIn" style="color: #fff;">log in</a></button>
-
+                <button><a href="../logIn" style="color: #fff;">Log in</a></button>
             </div>
         </nav>
     </header>
+
     <main>
         <section>
             <form action="">
                 <h1>Create an account</h1>
                 <label for="">Name</label>
-                <input type="text">
+                <input type="text" name="name" />
+
                 <label for="">Surname</label>
-                <input type="text">
+                <input type="text" name="surname" />
+
                 <label for="">Email</label>
-                <input type="email">
+                <input type="email" name="email" />
+
                 <label for="">Username</label>
-                <input type="text">
-                <label for="">Name</label>
-                <input type="text">
+                <input type="text" name="username" />
+
                 <label for="">Password</label>
-                <input type="password">
-                <button>Create Account</button>
-                <h6 style="text-align: center; font-weight: 500;">Alderly have account? <span
-                        style="color: #DB4444;">Log in</span></h6>
+                <input type="password" name="password" />
+
+                <button type="submit">Create Account</button>
+
+                <h6 style="text-align: center; font-weight: 500;">
+                    Already have an account? <a style="color: #DB4444;" href="../logIn/">Log in</a>
+                </h6>
             </form>
+            <div id="message-box"></div>
         </section>
     </main>
+
     <footer>
         <div>
             <h4>Exclusive</h4>
             <p>Subscribe</p>
             <p>Get 10% off your first order</p>
-            <input type="text" placeholder="Enter your email">
+            <input type="text" placeholder="Enter your email" />
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
-                <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z">
+                <path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z" />
             </svg>
         </div>
         <div>
             <h4>Support</h4>
-            <p>111 Bijoy sarani, Dhaka, <br> DH 1515, Bangladesh.</p>
+            <p>111 Bijoy sarani, Dhaka, <br /> DH 1515, Bangladesh.</p>
             <p>exclusive@gmail.com</p>
             <p>+88015-88888-9999</p>
         </div>
@@ -91,20 +89,20 @@
             <p>Shop</p>
         </div>
         <div>
-            <h4>Quik Link</h4>
+            <h4>Quick Link</h4>
             <p>Privacy Policy</p>
             <p>Terms Of Use</p>
-            <p>FAQ </p>
+            <p>FAQ</p>
             <p>Contact</p>
         </div>
         <div>
             <h4>Download App</h4>
             <h6>Save $3 with App New User Only</h6>
             <div class="imageDiv">
-                <img src="../images/WhatsApp Image 2025-04-01 at 01.19.56_244fa65c.jpg" alt="" class="img1">
+                <img src="../images/WhatsApp Image 2025-04-01 at 01.19.56_244fa65c.jpg" alt="" class="img1" />
                 <div class="imageDiv2">
-                    <img src="../images/WhatsApp Image 2025-04-01 at 01.22.46_3d98a6e4.jpg" alt=""> <br>
-                    <img src="../images/WhatsApp Image 2025-04-01 at 01.24.36_e73ffc9c.jpg" alt="">
+                    <img src="../images/WhatsApp Image 2025-04-01 at 01.22.46_3d98a6e4.jpg" alt="" /> <br />
+                    <img src="../images/WhatsApp Image 2025-04-01 at 01.24.36_e73ffc9c.jpg" alt="" />
                 </div>
             </div>
             <div class="iconDiv">
@@ -115,11 +113,13 @@
             </div>
         </div>
     </footer>
+
     <div
         style="background-color: #DB4444; color: rgba(194, 194, 194, 0.48); text-align: center; padding: 10px; border-top: 1px solid rgba(194, 194, 194, 0.235);">
         <p>© Copyright Rimel 2022. All right reserved</p>
     </div>
-    <script src="./assets/main.js"></script>
+
+    <script src="./main.js"></script>
 </body>
 
 </html>

@@ -46,16 +46,18 @@
     </header>
     <main>
         <section>
-            <form action="">
+            <form>
                 <h1>Log in</h1>
                 <label for="">Username</label>
-                <input type="text">
+                <input type="text" name="username" required />
                 <label for="">Password</label>
-                <input type="password">
-                <button>Log in</button>
+                <input type="password" name="password" required />
+                <button type="submit">Log in</button>
             </form>
+            <div id="message-box"></div>
         </section>
     </main>
+
     <footer>
         <div>
             <h4>Exclusive</h4>
@@ -105,11 +107,11 @@
             </div>
         </div>
     </footer>
-    <div
-        style="background-color: #DB4444; color: rgba(194, 194, 194, 0.48); text-align: center; padding: 10px; border-top: 1px solid rgba(194, 194, 194, 0.235);">
-        <p>© Copyright Rimel 2022. All right reserved</p>
+
+    <div style="background-color: #DB4444; color: rgba(194, 194, 194, 0.48); text-align: center; padding: 10px;">
+        <p>© Copyright Rimel 2022. All rights reserved</p>
     </div>
-    <script src="./assets/main.js"></script>
+    <script src="./main.js"></script>
 </body>
 
 </html>
