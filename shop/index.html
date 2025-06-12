@@ -1,73 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Shop</title>
-  <link rel="stylesheet" href="../header.css" />
-  <link rel="stylesheet" href="../footer.css" />
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" crossorigin="anonymous" />
-  <script src="https://kit.fontawesome.com/e8c9158c97.js" crossorigin="anonymous"></script>
-</head>
-<body>
-  <header>
-    <div style="background-color: #dd4444;">
-      <p>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
-    </div>
-    <nav>
-      <h1>E-commerce</h1>
-      <ul>
-        <li><a href="../homePage">Home</a></li>
-        <li><a href="../contact/">Contact</a></li>
-        <li><a href="../about/">About</a></li>
-        <li><a href="../signUp/">Sign Up</a></li>
-        <li><a href="../shop/">Shop</a></li>
-      </ul>
-      <div>
-        <input type="text" placeholder="What are you looking for?" />
-        <i class="fa-solid fa-magnifying-glass" style="margin: 5px;"></i>
-        <button><a href="../logIn" style="color: #fff;">Log in</a></button>
-      </div>
-    </nav>
-  </header>
 
-         <section>
-            <div class="secDiv">
-                <h1 style="margin-bottom: 20px;">Shop</h1>
-                <div style="display: flex;">
-                    <div style="margin-right: 50px;">
-                        <div><input type="search" placeholder="search"></div>
-                        <div class="catecoryDiv">
-                            <h3>Catecory</h3>
-                            <ul>
-                                <li>Clothing</li>
-                                <li>Footwear</li>
-                                <li>Accessories</li>
-                                <li>Tablets</li>
-                            </ul>
-                        </div>
-                        <div class="rateDiv">
-                            <h3>Rate</h3>
-                            <p>⭐⭐⭐⭐⭐ <br> ⭐⭐⭐⭐ <br> ⭐⭐⭐ <br> ⭐⭐ <br> ⭐</p>
-                        </div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop</title>
+    <link rel="stylesheet" href="../header.css" />
+    <link rel="stylesheet" href="../footer.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        crossorigin="anonymous" />
+    <script src="https://kit.fontawesome.com/e8c9158c97.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <div style="background-color: #dd4444;">
+            <p>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
+        </div>
+        <nav>
+            <h1>E-commerce</h1>
+            <ul>
+                <li><a href="../homePage">Home</a></li>
+                <li><a href="../contact/">Contact</a></li>
+                <li><a href="../about/">About</a></li>
+                <li><a href="../signUp/">Sign Up</a></li>
+                <li><a href="../shop/">Shop</a></li>
+            </ul>
+            <div>
+                <input type="text" placeholder="What are you looking for?" />
+                <i class="fa-solid fa-magnifying-glass" style="margin: 5px;"></i>
+                <button><a href="../logIn" style="color: #fff;">Log in</a></button>
+            </div>
+        </nav>
+    </header>
+
+    <section>
+        <div class="secDiv">
+            <h1 style="margin-bottom: 20px;">Shop</h1>
+            <div style="display: flex;">
+                <div style="margin-right: 50px;">
+                    <div><input type="search" placeholder="search"></div>
+                    <div class="catecoryDiv">
+                        <h3>Catecory</h3>
+                        <ul>
+                            <li>Clothing</li>
+                            <li>Footwear</li>
+                            <li>Accessories</li>
+                            <li>Tablets</li>
+                        </ul>
                     </div>
-                    <div>
-                        <button
-                            style="border: none; padding: 5px 10px; border-radius: 5px; background-color: #DB4444; color: #fff;">All
-                            products</button> <br>
-                        <select style="margin-top: 15px; border-radius: 5px; padding: 7px; padding-right: 130px;">
-                            <option value="option1">Sort by</option>
-                        </select>
-                        <div id="productList"></div>
-                        </div>
+                    <div class="rateDiv">
+                        <h3>Rate</h3>
+                        <p>⭐⭐⭐⭐⭐ <br> ⭐⭐⭐⭐ <br> ⭐⭐⭐ <br> ⭐⭐ <br> ⭐</p>
                     </div>
                 </div>
+                <div>
+                    <button
+                        style="border: none; padding: 5px 10px; border-radius: 5px; background-color: #DB4444; color: #fff;">All
+                        products</button> <br>
+                    <select style="margin-top: 15px; border-radius: 5px; padding: 7px; padding-right: 130px;">
+                        <option value="option1">Sort by</option>
+                    </select>
+                    <div id="productList"></div>
+                </div>
             </div>
-        </section>
+        </div>
+        </div>
+    </section>
 
 
-  <footer>
+    <footer>
         <div>
             <h4>Exclusive</h4>
             <p>Subscribe</p>
@@ -117,6 +120,7 @@
         </div>
     </footer>
 
-  <script src="./main.js"></script>
+    <script src="./main.js"></script>
 </body>
+
 </html>

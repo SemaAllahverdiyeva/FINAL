@@ -54,6 +54,10 @@ main ul li {
     text-align: center;
 }
 
+.product-card:hover{
+    text-decoration: none;
+}
+
 .rating {
     font-weight: 600;
     color: #ffee00;
@@ -63,6 +67,7 @@ main ul li {
     color: #dd4444;
 }
 .product-title{
+    color: #000;
     font-weight: 600;
 }
 

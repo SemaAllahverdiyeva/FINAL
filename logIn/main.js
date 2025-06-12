@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <i class="fa-solid fa-cart-shopping"></i>
                 <a href="../account/" style="color: black;"><i class="fa-solid fa-user"></i></a>
                 <span class="username"></span>
-                <button>log out</button>
+                <button class="logOutBtn">log out</button>
             </div>
         </nav>`;
         const username = document.querySelector(".username");
@@ -58,13 +58,25 @@ function loginFunc(user) {
     })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data);
             if (data.status != 403) {
                 showMessage("Login successful! Redirecting...", "success");
+
                 localStorage.setItem("activeUser", JSON.stringify(data.body));
-                setTimeout(() => {
-                    window.location.href = "../homePage/index.html";
-                }, 2000);
+
+                // İndi token ilə user detallarını gətir
+                return fetch("http://195.26.245.5:9505/api/clients/get-details", {
+                    method: "GET",
+                    headers: {
+                        Authorization: "Bearer " + data.body.token,
+                    },
+                })
+                    .then((res) => res.json())
+                    .then((details) => {
+                        localStorage.setItem("activeUserDetails", JSON.stringify(details));
+                        setTimeout(() => {
+                            window.location.href = "../homePage/index.html";
+                        }, 1500);
+                    });
             } else {
                 showMessage("Invalid username or password!", "danger");
             }
@@ -73,5 +85,9 @@ function loginFunc(user) {
             console.error("Login error:", error);
             showMessage("Server error. Please try again later.", "danger");
         });
-    const logoutBtn = document.querySelector("#logout-btn");
+    const logOutBtn = document.querySelector(".logOutBtn");
+    logOutBtn.addEventListener("click", () => {
+        localStorage.removeItem("activeUser");
+        localStorage.removeItem("activeUserDetails");
+    })
 }

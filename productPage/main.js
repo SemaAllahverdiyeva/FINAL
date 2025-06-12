@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <i class="fa-solid fa-cart-shopping"></i>
                 <a href="../account/" style="color: black;"><i class="fa-solid fa-user"></i></a>
                 <span class="username"></span>
-                <button>log out</button>
+                <button class="logOutBtn">log out</button>
             </div>
         </nav>`;
         const username = document.querySelector(".username");

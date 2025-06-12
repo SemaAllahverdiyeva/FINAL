@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <i class="fa-solid fa-cart-shopping"></i>
                 <a href="../account/" style="color: black;"><i class="fa-solid fa-user"></i></a>
                 <span class="username"></span>
-                <button>log out</button>
+                <button class="logOutBtn">log out</button>
             </div>
         </nav>`;
         const username = document.querySelector(".username");
@@ -69,23 +69,18 @@ document.addEventListener("DOMContentLoaded", function () {
             const productCard = document.createElement("div");
             productCard.classList.add("col-md-3", "mb-4");
             productCard.innerHTML = `
-                <div class="product-card">
+               <a href="../productPage" class="product-card"> <div>
                     <img src="${product.imageUrl}" alt="${product.brand}" class="product-image" data-id="${product.id}">
                     <h6 class="product-title" data-id="${product.id}">${product.brand} ${product.model}</h6>
                     <p class="price">${product.price}$</p>
                     <p class="rating">⭐ ${product.rating} <span>(${Math.floor(Math.random() * 100) + 1})</span></p>
                     <button class="btn-add-to-cart" data-id="${product.id}">Add to cart</button>
                 </div>
+                 </a>
+
             `;
 
             productList.appendChild(productCard);
-        });
-
-        document.querySelectorAll(".product-image, .product-title").forEach(item => {
-            item.addEventListener("click", function () {
-                const productId = this.getAttribute("data-id");
-                window.location.href = `../product/?id=${productId}`;
-            });
         });
 
         document.querySelectorAll(".btn-add-to-cart").forEach(button => {

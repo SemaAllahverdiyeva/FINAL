@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const activeUserDetails = JSON.parse(localStorage.getItem("activeUserDetails"));
     if (activeUser) {
         const header = document.querySelector("header");
-        header.innerHTML = `<div style="background-color: #DD4444;">
+        header.innerHTML = ` <div style="background-color: #DD4444;">
             <p>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
         </div>
         <nav>
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <i class="fa-solid fa-cart-shopping"></i>
                 <a href="../account/" style="color: black;"><i class="fa-solid fa-user"></i></a>
                 <span class="username"></span>
-                <button>log out</button>
+                <button class="logOutBtn">log out</button>
             </div>
         </nav>`;
         const username = document.querySelector(".username");
@@ -68,8 +68,13 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     } else if (!activeUserDetails) {
         userDetailsDiv.innerHTML =
-            ` <h2>No user logged in</h2>
+            `<h2>No user logged in</h2>
             <p>Please <a href="../logIn">log in</a> to view your details.</p>`
             ;
     }
+    const logOutBtn = document.querySelector(".logOutBtn");
+    logOutBtn.addEventListener("click", () => {
+        localStorage.removeItem("activeUser");
+        localStorage.removeItem("activeUserDetails");
+    })
 });

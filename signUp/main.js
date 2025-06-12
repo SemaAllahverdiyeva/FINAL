@@ -79,5 +79,10 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch((error) => {
                 console.error("Fetch error:", error);
             });
-    }
+    };
+    const logOutBtn = document.querySelector(".logOutBtn");
+    logOutBtn.addEventListener("click", () => {
+        localStorage.removeItem("activeUser");
+        localStorage.removeItem("activeUserDetails");
+    });
 });
