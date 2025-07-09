@@ -109,4 +109,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     fetchProducts();
+    const logOutBtn = document.querySelector(".logOutBtn");
+    logOutBtn.addEventListener("click", () => {
+        localStorage.removeItem("activeUser");
+        localStorage.removeItem("activeUserDetails");
+    });
 });

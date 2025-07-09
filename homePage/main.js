@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const activeUser = JSON.parse(localStorage.getItem("activeUser"));
     const activeUserDetails = JSON.parse(localStorage.getItem("activeUserDetails"));
     const username = document.querySelector(".username");
-    // const activeUserDetails = JSON.parse(localStorage.getItem("activeUserDetails"));
 
     if (activeUser) {
         username.textContent = activeUserDetails.username;

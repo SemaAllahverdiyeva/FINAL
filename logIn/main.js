@@ -63,7 +63,6 @@ function loginFunc(user) {
 
                 localStorage.setItem("activeUser", JSON.stringify(data.body));
 
-                // İndi token ilə user detallarını gətir
                 return fetch("http://195.26.245.5:9505/api/clients/get-details", {
                     method: "GET",
                     headers: {
@@ -75,7 +74,7 @@ function loginFunc(user) {
                         localStorage.setItem("activeUserDetails", JSON.stringify(details));
                         setTimeout(() => {
                             window.location.href = "../homePage/index.html";
-                        }, 1500);
+                        }, 5);
                     });
             } else {
                 showMessage("Invalid username or password!", "danger");
