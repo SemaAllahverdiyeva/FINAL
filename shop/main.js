@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const activeUser = JSON.parse(localStorage.getItem("activeUser"));
     const activeUserDetails = JSON.parse(localStorage.getItem("activeUserDetails"));
+
     if (activeUser) {
         const header = document.querySelector("header");
         header.innerHTML = `<div style="background-color: #DD4444;">
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><a href="../shop/">Shop</a></li>
             </ul>
             <div>
-                <input type="text" placeholder="What are you lookimg for?">
+                <input type="text" placeholder="What are you looking for?">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <i class="fa-solid fa-cart-shopping"></i>
                 <a href="../account/" style="color: black;"><i class="fa-solid fa-user"></i></a>
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const username = document.querySelector(".username");
         username.textContent = activeUserDetails.username;
     }
+
     const productList = document.querySelector("#productList");
     let products = [];
     let filteredProducts = [];
@@ -40,9 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         })
             .then(response => {
-                if (!response.ok) {
-                    throw new Error("Failed to fetch products");
-                }
+                if (!response.ok) throw new Error("Failed to fetch products");
                 return response.json();
             })
             .then(data => {
@@ -69,22 +69,30 @@ document.addEventListener("DOMContentLoaded", function () {
             const productCard = document.createElement("div");
             productCard.classList.add("col-md-3", "mb-4");
             productCard.innerHTML = `
-               <a href="../productPage" class="product-card"> <div>
-                    <img src="${product.imageUrl}" alt="${product.brand}" class="product-image" data-id="${product.id}">
-                    <h6 class="product-title" data-id="${product.id}">${product.brand} ${product.model}</h6>
-                    <p class="price">${product.price}$</p>
-                    <p class="rating">⭐ ${product.rating} <span>(${Math.floor(Math.random() * 100) + 1})</span></p>
-                    <button class="btn-add-to-cart" data-id="${product.id}">Add to cart</button>
-                </div>
-                 </a>
-
+                <a href="../productPage/index.html" class="product-card" data-id="${product.id}">
+                    <div>
+                        <img src="${product.imageUrl}" alt="${product.brand}" class="product-image">
+                        <h6 class="product-title">${product.brand} ${product.model}</h6>
+                        <p class="price">${product.price}$</p>
+                        <p class="rating">⭐ ${product.rating} <span>(${Math.floor(Math.random() * 100) + 1})</span></p>
+                        <button class="btn-add-to-cart" data-id="${product.id}">Add to cart</button>
+                    </div>
+                </a>
             `;
 
             productList.appendChild(productCard);
         });
 
+        document.querySelectorAll(".product-card").forEach(card => {
+            card.addEventListener("click", function () {
+                const productId = this.getAttribute("data-id");
+                localStorage.setItem("selectedProductId", productId);
+            });
+        });
+
         document.querySelectorAll(".btn-add-to-cart").forEach(button => {
-            button.addEventListener("click", function () {
+            button.addEventListener("click", function (e) {
+                e.preventDefault();
                 const productId = this.getAttribute("data-id");
                 addToCart(productId);
             });
@@ -105,13 +113,16 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         localStorage.setItem("cart", JSON.stringify(cart));
-        alert("Product added to cart!");
     }
 
     fetchProducts();
+
     const logOutBtn = document.querySelector(".logOutBtn");
     logOutBtn.addEventListener("click", () => {
         localStorage.removeItem("activeUser");
         localStorage.removeItem("activeUserDetails");
+        setTimeout(() => {
+            window.location.href = "../shop/index.html";
+        }, 5);
     });
 });

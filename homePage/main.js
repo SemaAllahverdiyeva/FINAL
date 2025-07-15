@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><a href="../shop/">Shop</a></li>
             </ul>
             <div>
-                <input type="text" placeholder="What are you lookimg for?">
+                <input type="text" placeholder="What are you looking for?">
                 <i class="fa-solid fa-magnifying-glass" style="margin: 5px;"></i>
                 <button><a href="../logIn" style="color: #fff;">log in</a></button>
 
@@ -31,10 +31,12 @@ document.addEventListener("DOMContentLoaded", function () {
     </header>
         `
     }
-
     const logOutBtn = document.querySelector(".logOutBtn");
     logOutBtn.addEventListener("click", () => {
         localStorage.removeItem("activeUser");
         localStorage.removeItem("activeUserDetails");
+        setTimeout(() => {
+            window.location.href = "../homePage/index.html";
+        }, 15);
     })
 })

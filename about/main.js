@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <li><a href="../shop/">Shop</a></li>
             </ul>
             <div>
-                <input type="text" placeholder="What are you lookimg for?">
+                <input type="text" placeholder="What are you looking for?">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <i class="fa-solid fa-cart-shopping"></i>
                 <a href="../account/" style="color: black;"><i class="fa-solid fa-user"></i></a>
@@ -31,5 +31,8 @@ document.addEventListener("DOMContentLoaded", function () {
     logOutBtn.addEventListener("click", () => {
         localStorage.removeItem("activeUser");
         localStorage.removeItem("activeUserDetails");
+        setTimeout(() => {
+            window.location.href = "../about/index.html";
+        }, 5);
     })
 })

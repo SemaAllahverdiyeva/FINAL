@@ -1,15 +1,16 @@
 main {
     display: flex !important;
     justify-content: center;
+    margin: 150px 0px;
+    margin-bottom: 300px;
 }
 
 main form {
     display: flex;
     flex-direction: column;
-    margin: 150px 0px;
-    margin-bottom: 300px;
     width: 450px;
 }
+
 main h1 {
     text-align: center;
 }
