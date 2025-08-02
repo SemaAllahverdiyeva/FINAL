@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div>
                 <input type="text" placeholder="What are you looking for?">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <i class="fa-solid fa-cart-shopping"></i>
+                <a href="../cart/" style="color: black;"><i class="fa-solid fa-cart-shopping"></i></i></a>
                 <a href="../account/" style="color: black;"><i class="fa-solid fa-user"></i></a>
                 <span class="username"></span>
                 <button class="logOutBtn">log out</button>
@@ -27,12 +27,36 @@ document.addEventListener("DOMContentLoaded", function () {
         const username = document.querySelector(".username");
         username.textContent = activeUserDetails.username;
     };
+
+    
+    const products = JSON.parse(localStorage.getItem("cartItems")) || [];
+    const table = document.querySelector("table");
+
+    products.forEach((product, index) => {
+        const tr = document.createElement("tr");
+
+        tr.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${product.brand || product.brend}</td>
+            <td>${product.model}</td>
+            <td>${product.category}</td>
+            <td><img src="${product.url}" alt="" style="width: 250px;"></td>
+            <td>${product.price}</td>
+            <td>${product.rating || "5/5"}</td>
+            <td><button style="border: none; padding: 5px 10px; border-radius: 5px; background-color: rgb(0, 102, 255); color: white;">Edit</button></td>
+            <td><button style="border: none; padding: 5px 10px; border-radius: 5px; background-color: #DB4444; color: white; margin-left: 20px;">Delete</button></td>
+        `;
+
+        table.appendChild(tr);
+    });
+
+    
     const logOutBtn = document.querySelector(".logOutBtn");
     logOutBtn.addEventListener("click", () => {
         localStorage.removeItem("activeUser");
         localStorage.removeItem("activeUserDetails");
         setTimeout(() => {
             window.location.href = "../userProducts/index.html";
-        }, 5);
+        }, 10);
     })
 });

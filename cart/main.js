@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div>
                 <input type="text" placeholder="What are you looking for?">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <i class="fa-solid fa-cart-shopping"></i>
+                <a href="../cart/" style="color: black;"><i class="fa-solid fa-cart-shopping"></i></i></a>
                 <a href="../account/" style="color: black;"><i class="fa-solid fa-user"></i></a>
                 <span class="username"></span>
                 <button class="logOutBtn">log out</button>
@@ -26,13 +26,16 @@ document.addEventListener("DOMContentLoaded", function () {
         </nav>`;
         const username = document.querySelector(".username");
         username.textContent = activeUserDetails.username;
+        const logOutBtn = document.querySelector(".logOutBtn");
+        logOutBtn.addEventListener("click", () => {
+            localStorage.removeItem("activeUser");
+            localStorage.removeItem("activeUserDetails");
+            setTimeout(() => {
+                window.location.href = "../cart/index.html";
+            }, 5);
+        })
     }
-    const logOutBtn = document.querySelector(".logOutBtn");
-    logOutBtn.addEventListener("click", () => {
-        localStorage.removeItem("activeUser");
-        localStorage.removeItem("activeUserDetails");
-        setTimeout(() => {
-            window.location.href = "../cart/index.html";
-        }, 5);
-    })
 })
+
+
+

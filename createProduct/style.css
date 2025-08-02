@@ -24,6 +24,10 @@ textarea {
     border-radius: 5px;
 }
 
+textarea {
+    padding: 5px;
+}
+
 .contanierDiv input {
     padding: 4px;
     border: #e6e6e6 1px solid;

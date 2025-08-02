@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div>
                 <input type="text" placeholder="What are you looking for?">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <i class="fa-solid fa-cart-shopping"></i>
+                <a href="../cart/" style="color: black;"><i class="fa-solid fa-cart-shopping"></i></i></a>
                 <a href="../account/" style="color: black;"><i class="fa-solid fa-user"></i></a>
                 <span class="username"></span>
                 <button class="logOutBtn">log out</button>
@@ -35,4 +35,32 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = "../createProduct/index.html";
         }, 5);
     })
+
+    let myForm = document.querySelector("form");
+
+    myForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(myForm);
+        const product = {};
+
+        formData.forEach((value, key) => {
+            product[key] = value;
+        })
+
+        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        cartItems.push(product);
+        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+        setTimeout(() => {
+            window.location.href = "../userProducts/index.html";
+        }, 200);
+    });
+
+    let image = document.querySelector(".image");
+    let url = document.querySelector(".url");
+
+    url.addEventListener("blur", () => {
+        image.src = url.value;
+    });
 })
