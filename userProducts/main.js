@@ -28,29 +28,61 @@ document.addEventListener("DOMContentLoaded", function () {
         username.textContent = activeUserDetails.username;
     };
 
-    
-    const products = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    const products = JSON.parse(localStorage.getItem("productData")) || [];
     const table = document.querySelector("table");
+
+    // products.forEach((product, index) => {
+    //     const tr = document.createElement("tr");
+
+    //     tr.innerHTML = `
+    //     <td>${index + 1}</td>
+    //     <td>${product.brand}</td>
+    //     <td>${product.model}</td>
+    //     <td>${product.categoryId}</td>
+    //     <td><img src="${product.imageUrl}" alt="" style="width: 250px;"></td>
+    //     <td>${product.price}</td>
+    //     <td>${product.rating}</td>
+    //     <td><button style="border: none; padding: 5px 10px; border-radius: 5px; background-color: rgb(0, 102, 255); color: white;">Edit</button></td>
+    //     <td><button style="border: none; padding: 5px 10px; border-radius: 5px; background-color: #DB4444; color: white; margin-left: 20px;" class="delete-btn" data-index="${index}">Delete</button></td>
+    // `;
+
+    //     table.appendChild(tr);
+    // });
+
+    fetch("http://195.26.245.5:9505/api/products/myProducts?page=10&size=10", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${activeUser?.token}`
+        }
+    })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            products = data;
+        })
 
     products.forEach((product, index) => {
         const tr = document.createElement("tr");
 
         tr.innerHTML = `
             <td>${index + 1}</td>
-            <td>${product.brand || product.brend}</td>
+            <td>${product.brand}</td>
             <td>${product.model}</td>
-            <td>${product.category}</td>
-            <td><img src="${product.url}" alt="" style="width: 250px;"></td>
+            <td>${product.categoryId}</td>
+            <td><img src="${product.imageUrl}" alt="" style="width: 250px;"></td>
             <td>${product.price}</td>
-            <td>${product.rating || "5/5"}</td>
+            <td>${product.rating}</td>
             <td><button style="border: none; padding: 5px 10px; border-radius: 5px; background-color: rgb(0, 102, 255); color: white;">Edit</button></td>
-            <td><button style="border: none; padding: 5px 10px; border-radius: 5px; background-color: #DB4444; color: white; margin-left: 20px;">Delete</button></td>
+            <td><button style="border: none; padding: 5px 10px; border-radius: 5px; background-color: #DB4444; color: white; margin-left: 20px;" class="delete-btn">Delete</button></td>
         `;
 
         table.appendChild(tr);
     });
 
-    
+
     const logOutBtn = document.querySelector(".logOutBtn");
     logOutBtn.addEventListener("click", () => {
         localStorage.removeItem("activeUser");

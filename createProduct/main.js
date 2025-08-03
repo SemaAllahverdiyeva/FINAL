@@ -38,6 +38,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let myForm = document.querySelector("form");
 
+    let select = document.getElementById("categorys");
+    fetch("http://195.26.245.5:9505/api/categories", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${activeUser?.token}`
+        }
+    })
+        .then(response => {
+            return response.json();
+        })
+        .then(data => {
+            localStorage.setItem("categorys", JSON.stringify(data));
+            data.forEach((obj) => {
+                let l = document.createElement("option");
+                l.innerHTML = obj.name;
+                select.append(l);
+            })
+        })
+
     myForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
@@ -48,13 +68,27 @@ document.addEventListener("DOMContentLoaded", function () {
             product[key] = value;
         })
 
-        let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+        let productData = JSON.parse(localStorage.getItem("productData")) || [];
+        productData.push(product);
+        localStorage.setItem("productData", JSON.stringify(productData));
+
+        let categories = JSON.parse(localStorage.getItem("categories"));
+        let category = categories.find((obj) => {
+            return obj.name == product.categoryId;
+        })
+        product.categoryId = category.id;
         cartItems.push(product);
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-        setTimeout(() => {
-            window.location.href = "../userProducts/index.html";
-        }, 200);
+        fetch("http://195.26.245.5:9505/api/products", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(product),
+        })
+
+        window.location.href = "../userProducts";
     });
 
     let image = document.querySelector(".image");

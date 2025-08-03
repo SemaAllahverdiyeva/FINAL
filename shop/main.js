@@ -82,6 +82,27 @@ document.addEventListener("DOMContentLoaded", function () {
 
             productList.appendChild(productCard);
         });
+        
+        let ul = document.querySelector("main ul");
+
+        fetch("http://195.26.245.5:9505/api/categories", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${activeUser?.token}`
+            }
+        })
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                localStorage.setItem("categorys", JSON.stringify(data));
+                data.forEach((obj) => {
+                    let li = document.createElement("li");
+                    li.innerHTML = obj.name;
+                    ul.append(li);
+                })
+            })
 
         document.querySelectorAll(".product-card").forEach(card => {
             card.addEventListener("click", function () {
