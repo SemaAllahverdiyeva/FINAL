@@ -1,9 +1,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     const activeUser = JSON.parse(localStorage.getItem("activeUser"));
     const activeUserDetails = JSON.parse(localStorage.getItem("activeUserDetails"));
+
     if (activeUser) {
         const header = document.querySelector("header");
-        header.innerHTML = `<div style="background-color: #DD4444;">
+        header.innerHTML = `
+        <div style="background-color: #DD4444;">
             <p>Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</p>
         </div>
         <nav>
@@ -18,15 +20,18 @@ document.addEventListener("DOMContentLoaded", function () {
             <div>
                 <input type="text" placeholder="What are you looking for?">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <a href="../cart/" style="color: black;"><i class="fa-solid fa-cart-shopping"></i></i></a>
+                <a href="../cart/" style="color: black;"><i class="fa-solid fa-cart-shopping"></i></a>
                 <a href="../account/" style="color: black;"><i class="fa-solid fa-user"></i></a>
                 <span class="username"></span>
                 <button class="logOutBtn">log out</button>
             </div>
-        </nav>`;
+        </nav>
+        `;
+
         const username = document.querySelector(".username");
         username.textContent = activeUserDetails.username;
     }
+
     const logOutBtn = document.querySelector(".logOutBtn");
     logOutBtn.addEventListener("click", () => {
         localStorage.removeItem("activeUser");
@@ -34,31 +39,32 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
             window.location.href = "../createProduct/index.html";
         }, 5);
-    })
+    });
 
     let myForm = document.querySelector("form");
-
     let select = document.getElementById("categorys");
-    fetch("http://195.26.245.5:9505/api/categories", {
+    let cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+    // Fetch categories from API
+    fetch("http://195.26.245.5:9505/api/categories", { 
         method: "GET",
         headers: {
             "Content-Type": "application/json",
             "Authorization": `Bearer ${activeUser?.token}`
         }
     })
-        .then(response => {
-            return response.json();
-        })
-        .then(data => {
-            localStorage.setItem("categorys", JSON.stringify(data));
-            data.forEach((obj) => {
-                let l = document.createElement("option");
-                l.innerHTML = obj.name;
-                select.append(l);
-            })
-        })
+    .then(response => response.json())
+    .then(data => {
+        localStorage.setItem("categorys", JSON.stringify(data));
+        data.forEach((obj) => {
+            let option = document.createElement("option");
+            option.value = obj.name; // name as value
+            option.textContent = obj.name;
+            select.append(option);
+        });
+    });
 
-    myForm.addEventListener("submit", (e) => {
+    myForm.addEventListener("submit", async (e) => {
         e.preventDefault();
 
         const formData = new FormData(myForm);
@@ -66,35 +72,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
         formData.forEach((value, key) => {
             product[key] = value;
-        })
+        });
 
-        let productData = JSON.parse(localStorage.getItem("productData")) || [];
-        productData.push(product);
-        localStorage.setItem("productData", JSON.stringify(productData));
+        // Map category name to id
+        let categories = JSON.parse(localStorage.getItem("categorys")) || [];
+        let category = categories.find(c => c.name === product.categoryId);
+        if (category) {
+            product.categoryId = category.id;
+        } else {
+            alert("Category not found!");
+            return;
+        }
 
-        let categories = JSON.parse(localStorage.getItem("categories"));
-        let category = categories.find((obj) => {
-            return obj.name == product.categoryId;
-        })
-        product.categoryId = category.id;
+        // Convert price to number
+        product.price = parseFloat(product.price);
+
+        // Add to cartItems
         cartItems.push(product);
         localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-        fetch("http://195.26.245.5:9505/api/products", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(product),
-        })
+        // Send to API
+        try {
+            const response = await fetch("http://195.26.245.5:9505/api/products", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${activeUser?.token}`
+                },
+                body: JSON.stringify(product)
+            });
 
-        window.location.href = "../userProducts";
+            if (!response.ok) throw new Error("Failed to send product to API");
+            console.log("Product sent to API successfully");
+        } catch (err) {
+            console.error(err);
+        }
+
+        // window.location.href = "../userProducts";
     });
 
+    // Image preview
     let image = document.querySelector(".image");
     let url = document.querySelector(".url");
 
     url.addEventListener("blur", () => {
         image.src = url.value;
     });
-})
+});
